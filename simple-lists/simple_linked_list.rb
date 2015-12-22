@@ -46,4 +46,33 @@ class LinkedList
 		end
 		current.next = Node.new(val, nil)
 	end
+
+	def reverse(new_head=nil)
+		base = find_last(head)
+		current = head
+		until current.next == base
+			current = current.next
+		end
+		if new_head
+			find_last(new_head).next = current.next
+		else
+			new_head = base
+		end
+		current.next = nil
+		if head.next == nil
+			find_last(new_head).next = current
+			self.head = new_head
+		else
+			reverse(new_head)
+		end
+	end
+
+	def find_last(node)
+		current = node
+		if current.next == nil
+			return current
+		else
+			find_last(current.next)
+		end
+	end
 end
