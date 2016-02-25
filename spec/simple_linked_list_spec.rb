@@ -35,7 +35,7 @@ describe LinkedList do
 
     context 'when the linked list has initial data' do
       it 'points to a node, which contains the first data' do 
-        expect(linked_list.head.data).to eq data
+        expect(linked_list.head).to eq data
       end
     end
   end
