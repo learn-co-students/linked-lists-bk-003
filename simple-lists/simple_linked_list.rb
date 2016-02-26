@@ -67,11 +67,10 @@ class LinkedList
 		end
 		current_node.next = nil
 		new_head.next = current_node
-		if @head.next == nil
-			return new_head
-		else
+		if @head.next != nil
 			self.reverse
 		end
+		binding.pry
 		@head = new_head
 	end
 
