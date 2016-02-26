@@ -118,4 +118,21 @@ describe LinkedList do
       expect(linked_list.index_at(3)).to eq new_data
     end
   end
+
+  describe '#reverse' do 
+    let(:linked_list) {LinkedList.new("A")}
+    before do
+      linked_list.push("B")
+      linked_list.push("C")
+      linked_list.push("D")
+    end
+
+    it 'reverses the list' do
+      linked_list.reverse
+      expect(linked_list.index_at(0)).to eq "D"
+      expect(linked_list.index_at(1)).to eq "C"
+      expect(linked_list.index_at(2)).to eq "B"
+      expect(linked_list.index_at(3)).to eq "A"
+    end
+  end
 end

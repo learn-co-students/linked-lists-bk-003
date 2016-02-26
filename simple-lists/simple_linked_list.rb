@@ -58,4 +58,31 @@ class LinkedList
 		current_node.next = Node.new(data, nil) if current_node.next == nil
 		current_node.data
 	end
+
+	def reverse
+		new_head = last
+		current_node = @head
+		while current_node.next != new_head
+			current_node = current_node.next
+		end
+		current_node.next = nil
+		new_head.next = current_node
+		if @head.next == nil
+			return new_head
+		else
+			self.reverse
+		end
+		@head = new_head
+	end
+
+	def last
+		current_node = @head
+		counter = 0
+		while current_node.next != nil
+			current_node = current_node.next
+			counter += 1
+		end
+		new_head = current_node	
+	end
+
 end
